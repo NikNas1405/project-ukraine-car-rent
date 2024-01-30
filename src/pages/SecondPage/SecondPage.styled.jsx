@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-export const HeaderContainer = styled.div`
-  padding: 20px;
-`;
-
-export const Navigation = styled.nav`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 500px;
+`;
+export const Block = styled.div`
+  text-align: center;
+`;
+export const Title = styled.h1`
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #00baff,
+    0 0 10px #00baff,
+    0 0 20px #00baff,
+    0 0 40px #00baff,
+    0 0 80px #00baff;
 `;
 
 export const StyledLink = styled(Link)`
@@ -23,7 +32,7 @@ export const StyledLink = styled(Link)`
   transition:
     color 0.3s,
     text-shadow 0.3s;
-
+  display: block;
   &:hover,
   &:focus {
     color: #00baff; /* Blue text color on hover/focus */
@@ -34,18 +43,4 @@ export const StyledLink = styled(Link)`
       0 0 40px #00baff,
       0 0 80px #00baff;
   }
-`;
-
-export const IconWrapper = styled.svg`
-  width: ${(props) => props.size || '12px'};
-  height: ${(props) => props.size || '12px'};
-  fill: ${(props) => props.color || '#ffffff'};
-  display: inline-block;
-  margin-right: 5px;
-  box-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
 `;
