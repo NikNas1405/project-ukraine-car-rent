@@ -13,11 +13,8 @@ export const Header = () => {
         </Link>
         <nav>
           <NavLinkStyled to="/">Home</NavLinkStyled>
-          <NavLinkStyled to="/first">All cars</NavLinkStyled>
-          <NavLinkStyled to="/second">Favorites cars</NavLinkStyled>
-          {/* <NavLinkStyled to="/">Home</NavLinkStyled>
           <NavLinkStyled to="/catalog">All cars</NavLinkStyled>
-          <NavLinkStyled to="/favorites">Favorites cars</NavLinkStyled> */}
+          <NavLinkStyled to="/favorites">Favorites cars</NavLinkStyled>
         </nav>
       </HeaderContainer>
     </Header>
