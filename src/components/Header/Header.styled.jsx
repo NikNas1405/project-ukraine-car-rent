@@ -1,51 +1,66 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+
+export const Header = styled.header`
+  background-color: black;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  height: 100px;
+  z-index: 200;
+`;
 
 export const HeaderContainer = styled.div`
-  padding: 20px;
-`;
-
-export const Navigation = styled.nav`
+  max-width: 1144px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-`;
+  justify-content: center;
+  padding: 20px;
+  height: 100%;
 
-export const StyledLink = styled(Link)`
-  padding: 8px 16px;
-  color: #ffffff; /* White text color */
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
-  transition:
-    color 0.3s,
-    text-shadow 0.3s;
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
 
-  &:hover,
-  &:focus {
-    color: #00baff; /* Blue text color on hover/focus */
-    text-shadow:
-      0 0 5px #00baff,
-      0 0 10px #00baff,
-      0 0 20px #00baff,
-      0 0 40px #00baff,
-      0 0 80px #00baff;
+  > nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
   }
 `;
 
-export const IconWrapper = styled.svg`
-  width: ${(props) => props.size || '12px'};
-  height: ${(props) => props.size || '12px'};
-  fill: ${(props) => props.color || '#ffffff'};
+export const Logo = styled.img`
+  width: 250px;
+  height: auto;
+  display: block;
+`;
+
+export const NavLinkStyled = styled(NavLink)`
   display: inline-block;
-  margin-right: 5px;
-  box-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  height: 40px;
+  background-color: #0b44cd;
+
+  &.active {
+    background-color: #3470ff;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  &:not(:last-child) {
+    margin-right: 4px;
+  }
+
+  @media (min-width: 369px) {
+    font-size: 16px;
+    height: 44px;
+  }
 `;

@@ -1,16 +1,21 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from 'components/Header/Header';
 
-const SharedLayout = () => {
+import { Header } from '../Header/Header';
+import Loader from '../Loader/Loader';
+
+import { GlobalStyles, Container } from '../../styles/GlobalStyles';
+
+export const SharedLayout = () => {
   return (
     <>
       <Header />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      <Container>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+        <GlobalStyles />
+      </Container>
     </>
   );
 };
-
-export default SharedLayout;
