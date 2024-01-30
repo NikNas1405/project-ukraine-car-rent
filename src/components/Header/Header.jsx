@@ -1,15 +1,17 @@
-import { HeaderContainer, Logo, NavLinkStyled } from './Header.styled';
+import {
+  HeaderContainer,
+  // Logo,
+  NavLinkStyled,
+} from './Header.styled';
 import { Link } from 'react-router-dom';
 
-import logo from '../../assets/logo.png';
+// import logo  from '../../assets/logo.png';
 
 export const Header = () => {
   return (
     <Header>
       <HeaderContainer>
-        <Link to="/">
-          <Logo src={logo} alt="logo" />
-        </Link>
+        <Link to="/">{/* <Logo src={logo} alt="logo" /> */}</Link>
         <nav>
           <NavLinkStyled to="/">Home</NavLinkStyled>
           <NavLinkStyled to="/catalog">All cars</NavLinkStyled>

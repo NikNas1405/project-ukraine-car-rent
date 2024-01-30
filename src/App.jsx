@@ -8,14 +8,14 @@ const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage/ErrorPage'));
 
-export const App = () => {
+const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/favorites" element={<FavoritesPage />}></Route>
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<Navigate to="/error" />} />
         </Route>
@@ -23,3 +23,5 @@ export const App = () => {
     </>
   );
 };
+
+export default App;
