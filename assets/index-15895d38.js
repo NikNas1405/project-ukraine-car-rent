@@ -94,11 +94,11 @@ Error generating stack: `+o.message+`
     flex-wrap: wrap;
     gap: 4px;
   }
-`;Ue.img`
+`,Pv=Ue.img`
   width: 250px;
   height: auto;
   display: block;
-`;const ci=Ue(w0)`
+`,ci=Ue(w0)`
   display: inline-block;
   padding: 8px 16px;
   border-radius: 4px;
@@ -123,14 +123,14 @@ Error generating stack: `+o.message+`
     font-size: 16px;
     height: 44px;
   }
-`,Qd=()=>T.jsx(Qd,{children:T.jsxs(Cv,{children:[T.jsx(xd,{to:"/"}),T.jsxs("nav",{children:[T.jsx(ci,{to:"/",children:"Home"}),T.jsx(ci,{to:"/catalog",children:"All cars"}),T.jsx(ci,{to:"/favorites",children:"Favorites cars"})]})]})}),pt={colorBlack:"#121417",colorWhite:"#FFF",colorAccent:"#3470FF",colorAccent1:"#0B44CD",colorLabel:"#8A8A89",colorHeartBorder:"rgba(255, 255, 255, 0.8)",colorInputBorder:"rgba(138, 138, 137, 0.2)",colorInput:"#F7F7FB"},fi=Hd`
+`,_v="/project-ukraine-car-rent/assets/logo-819c8f63.png",Qd=()=>T.jsx(Qd,{children:T.jsxs(Cv,{children:[T.jsx(xd,{to:"/",children:T.jsx(Pv,{src:_v,alt:"logo"})}),T.jsxs("nav",{children:[T.jsx(ci,{to:"/",children:"Home"}),T.jsx(ci,{to:"/catalog",children:"All cars"}),T.jsx(ci,{to:"/favorites",children:"Favorites cars"})]})]})}),pt={colorBlack:"#121417",colorWhite:"#FFF",colorAccent:"#3470FF",colorAccent1:"#0B44CD",colorLabel:"#8A8A89",colorHeartBorder:"rgba(255, 255, 255, 0.8)",colorInputBorder:"rgba(138, 138, 137, 0.2)",colorInput:"#F7F7FB"},fi=Hd`
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-`,Pv=Hd`
+`,Nv=Hd`
     0% {
         transform: rotate(0deg);
     }
@@ -155,7 +155,7 @@ Error generating stack: `+o.message+`
     100% {
         transform: rotate(0deg);
     }
-`,_v=Ue.div`
+`,Rv=Ue.div`
   &.loader-off {
     display: none !important;
   }
@@ -168,7 +168,7 @@ Error generating stack: `+o.message+`
   background: ${pt.colorWhite};
   z-index: 15000;
   overflow: hidden;
-`,Nv=Ue.div`
+`,Lv=Ue.div`
   width: 150px;
   height: 150px;
   border: 1px ${pt.colorBlack} solid;
@@ -184,7 +184,7 @@ Error generating stack: `+o.message+`
     margin: 0 auto;
     right: 0;
   }
-`,Rv=Ue.div`
+`,zv=Ue.div`
   font-size: 10px;
   position: absolute;
   width: 100%;
@@ -196,7 +196,7 @@ Error generating stack: `+o.message+`
   color: ${pt.colorBlack};
   font-weight: 700;
   text-transform: uppercase;
-`,Lv=Ue.div`
+`,Tv=Ue.div`
   width: 138px;
   height: 138px;
   left: 5px;
@@ -262,7 +262,7 @@ Error generating stack: `+o.message+`
     bottom: 33px;
     background: ${pt.colorAccent};
   }
-`,zv=Ue.div`
+`,Ov=Ue.div`
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -287,8 +287,8 @@ Error generating stack: `+o.message+`
     border-radius: 0 50% 50% 0;
   }
 
-  animation: ${Pv} 3s infinite ease-in-out;
-`,Tv=()=>T.jsx(_v,{children:T.jsxs(Nv,{children:[T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(Lv,{children:T.jsx("div",{})}),T.jsx(zv,{}),T.jsx(Rv,{children:"Rental Car"})]})});const Ov=Ev`
+  animation: ${Nv} 3s infinite ease-in-out;
+`,Iv=()=>T.jsx(Rv,{children:T.jsxs(Lv,{children:[T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(dn,{}),T.jsx(Tv,{children:T.jsx("div",{})}),T.jsx(Ov,{}),T.jsx(zv,{children:"Rental Car"})]})});const $v=Ev`
   * {
     box-sizing: border-box;
   }
@@ -348,8 +348,8 @@ img, svg {
 button {
    cursor: pointer;
  }
-`,Iv=Ue.div`
+`,jv=Ue.div`
   padding: 128px 150px;
   margin: 0 auto;
   width: 1440px;
-`,$v=()=>T.jsxs(T.Fragment,{children:[T.jsx(Qd,{}),T.jsxs(Iv,{children:[T.jsx(C.Suspense,{fallback:T.jsx(Tv,{}),children:T.jsx(s0,{})}),T.jsx(Ov,{})]})]}),jv=C.lazy(()=>Co(()=>import("./HomePage-58852675.js"),[])),Dv=C.lazy(()=>Co(()=>import("./CatalogPage-06465236.js"),[])),Mv=C.lazy(()=>Co(()=>import("./FavoritesPage-5a4bd72d.js"),[])),Fv=C.lazy(()=>Co(()=>import("./ErrorPage-6038bd0a.js"),[])),Av=()=>T.jsx(T.Fragment,{children:T.jsx(c0,{children:T.jsxs(Yt,{path:"/",element:T.jsx($v,{}),children:[T.jsx(Yt,{index:!0,element:T.jsx(jv,{})}),T.jsx(Yt,{path:"/catalog",element:T.jsx(Dv,{})}),T.jsx(Yt,{path:"/favorites",element:T.jsx(Mv,{})}),T.jsx(Yt,{path:"/error",element:T.jsx(Fv,{})}),T.jsx(Yt,{path:"*",element:T.jsx(u0,{to:"/error"})})]})})}),Uv=di.createRoot(document.getElementById("root"));Uv.render(T.jsx(Qe.StrictMode,{children:T.jsx(v0,{basename:"/project-ukraine-car-rent",children:T.jsx(Av,{})})}));export{T as j};
+`,Dv=()=>T.jsxs(T.Fragment,{children:[T.jsx(Qd,{}),T.jsxs(jv,{children:[T.jsx(C.Suspense,{fallback:T.jsx(Iv,{}),children:T.jsx(s0,{})}),T.jsx($v,{})]})]}),Mv=C.lazy(()=>Co(()=>import("./HomePage-2999538a.js"),[])),Fv=C.lazy(()=>Co(()=>import("./CatalogPage-60086c6e.js"),[])),Av=C.lazy(()=>Co(()=>import("./FavoritesPage-fc2a3a52.js"),[])),Uv=C.lazy(()=>Co(()=>import("./ErrorPage-fa0d8eb7.js"),[])),Bv=()=>T.jsx(T.Fragment,{children:T.jsx(c0,{children:T.jsxs(Yt,{path:"/",element:T.jsx(Dv,{}),children:[T.jsx(Yt,{index:!0,element:T.jsx(Mv,{})}),T.jsx(Yt,{path:"/catalog",element:T.jsx(Fv,{})}),T.jsx(Yt,{path:"/favorites",element:T.jsx(Av,{})}),T.jsx(Yt,{path:"/error",element:T.jsx(Uv,{})}),T.jsx(Yt,{path:"*",element:T.jsx(u0,{to:"/error"})})]})})});di.createRoot(document.getElementById("root")).render(T.jsx(Qe.StrictMode,{children:T.jsx(v0,{basename:"/project-ukraine-car-rent",children:T.jsx(Bv,{})})}));export{T as j};
