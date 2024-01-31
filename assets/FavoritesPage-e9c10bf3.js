@@ -1,4 +1,4 @@
-import{s as o,g as e,N as n,d as r,j as t,L as i}from"./index-074c7cb3.js";import{s as c,e as d,C as l}from"./CarList-21b8625e.js";const p="/project-ukraine-car-rent/assets/car-80bb4689.jpg",x=o.div`
+import{s as o,g as e,N as n,d as r,j as t,L as i}from"./index-e7de7906.js";import{s as c,e as d,C as l}from"./CarList-ee410c93.js";const p="/project-ukraine-car-rent/assets/car-80bb4689.jpg",x=o.div`
   padding-top: 80px;
 `,g=o.div`
   display: flex;
