@@ -35,7 +35,7 @@ const carsSlice = createSlice({
       );
     },
     setCarsFilter(state, action) {
-      state.formData = action.payload;
+      state.formData = { ...state.formData, ...action.payload };
       if (
         action.payload.make === null &&
         action.payload.price === null &&

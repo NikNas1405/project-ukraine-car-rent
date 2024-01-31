@@ -2,6 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import Loader from '../../components/Loader/Loader';
+import { CarList } from '../../components/CarList/CarList';
+import { FilterForm } from '../../components/FilterForm/FilterForm';
+
+import { fetchCars } from '../../redux/operation/operation';
 import {
   selectIsLoading,
   selectCars,
@@ -9,11 +14,6 @@ import {
   selectIsFilter,
   selectFilterCars,
 } from '../../redux/selectors';
-import Loader from '../../components/Loader/Loader';
-import { CarList } from '../../components/CarList/CarList';
-import { FilterForm } from '../../components/FilterForm/FilterForm';
-
-import { fetchCars } from '../../redux/operation/operation';
 
 const CatalogPage = () => {
   const isLoading = useSelector(selectIsLoading);

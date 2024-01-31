@@ -132,13 +132,15 @@ export const Input2 = styled.input`
 export const carStyles = {
   singleValue: (styles) => ({
     ...styles,
-    color: globalColor.colorBlack,
+    color: `${globalColor.colorBlack}`,
   }),
 
   control: (styles, { isSelected }) => ({
     ...styles,
     display: 'flex',
-    color: isSelected ? globalColor.colorBlack : `${globalColor.colorBlack}33`,
+    color: isSelected
+      ? `${globalColor.colorBlack}`
+      : `${globalColor.colorBlack}33`,
     backgroundColor: '#F7F7FB',
     width: '224px',
     borderRadius: '14px',
@@ -228,6 +230,12 @@ export const carStyles = {
     display: 'none',
   }),
 
+  clearIndicator: (provided) => ({
+    ...provided,
+    padding: 0,
+    cursor: 'pointer',
+  }),
+
   valueContainer: (styles) => ({
     ...styles,
     padding: '0px',
@@ -250,20 +258,24 @@ export const carStyles = {
 
   placeholder: (styles) => ({
     ...styles,
-    color: globalColor.colorBlack,
+    color: `${globalColor.colorBlack}`,
   }),
 };
 
 export const priceStyles = {
   singleValue: (styles) => ({
     ...styles,
-    color: globalColor.colorBlack,
+    color: `${globalColor.colorBlack}`,
+    position: 'absolute',
+    left: '32px',
   }),
 
   control: (styles, { isSelected }) => ({
     ...styles,
     display: 'flex',
-    color: isSelected ? globalColor.colorBlack : `${globalColor.colorBlack}33`,
+    color: isSelected
+      ? `${globalColor.colorBlack}`
+      : `${globalColor.colorBlack}33`,
     backgroundColor: '#F7F7FB',
     width: '125px',
     borderRadius: '14px',
@@ -356,20 +368,14 @@ export const priceStyles = {
   valueContainer: (styles) => ({
     ...styles,
     padding: '0px',
+    position: 'relative',
     margin: '0px',
   }),
 
-  input: (styles, state) => ({
+  input: (styles) => ({
     ...styles,
     padding: '0px',
     margin: '0px',
-    '&:after': {
-      content: !state.value.length ? '"$"' : '""',
-      position: 'absolute',
-      color: `${globalColor.colorBlack}`,
-      right: '20px',
-      top: '0px',
-    },
   }),
 
   dropdownIndicator: (styles, state) => ({
@@ -378,10 +384,5 @@ export const priceStyles = {
     color: `${globalColor.colorBlack}`,
     transition: 'all .3s ease',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
-  }),
-
-  placeholder: (styles) => ({
-    ...styles,
-    color: globalColor.colorBlack,
   }),
 };

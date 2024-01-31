@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Select from 'react-select';
 import { nanoid } from 'nanoid';
 
 import { setCarsFilter } from '../../redux/slice/carsSlice';
 
+import makesArray from '../../helpers/makes.json';
 import Loader from '../Loader/Loader';
 
 import {
@@ -13,7 +14,6 @@ import {
   formattedOptions,
   priceOptions,
 } from '../../helpers/helpersFunctions';
-import makesArray from '../../helpers/makes.json';
 
 import {
   StyledForm,
@@ -30,23 +30,30 @@ import {
 export const FilterForm = () => {
   const dispatch = useDispatch();
 
+  const initialSelectedMake = localStorage.getItem('selectedMake') || null;
+  const initialSelectedPrice = localStorage.getItem('selectedPrice') || null;
+
   const [minMileage, setMinMileage] = useState('');
   const [maxMileage, setMaxMileage] = useState('');
-  const [selectedMake, setSelectedMake] = useState(null);
-  const [selectedPrice, setSelectedPrice] = useState(null);
+  const [selectedMake, setSelectedMake] = useState(initialSelectedMake);
+  const [selectedPrice, setSelectedPrice] = useState(initialSelectedPrice);
 
   const pricesArray = priceOptions.map((item) => item.value);
 
+  useEffect(() => {
+    localStorage.setItem('selectedMake', selectedMake);
+    localStorage.setItem('selectedPrice', selectedPrice);
+  }, [selectedMake, selectedPrice]);
+
   const applyFilter = (e) => {
     e.preventDefault();
-    const formData = {
-      make: selectedMake || null,
-      price: selectedPrice || null,
-      mileageFrom: minMileage || '',
-      mileageTo: maxMileage || '',
-    };
 
-    console.log(formData);
+    const formData = {
+      make: selectedMake,
+      price: selectedPrice,
+      mileageFrom: minMileage,
+      mileageTo: maxMileage,
+    };
 
     dispatch(setCarsFilter(formData));
   };
@@ -58,35 +65,23 @@ export const FilterForm = () => {
       mileageFrom: '',
       mileageTo: '',
     };
+
+    setSelectedMake(null);
+    setSelectedPrice(null);
+    setMinMileage('');
+    setMaxMileage('');
+
     dispatch(setCarsFilter(resetFilter));
   };
 
   const handleMakeChange = (selectedOption) => {
-    const value = selectedOption ? selectedOption.value : '';
+    const value = selectedOption ? selectedOption.value : null;
     setSelectedMake(value);
-
-    const formData = {
-      make: value,
-      price: selectedPrice || null,
-      mileageFrom: minMileage || '',
-      mileageTo: maxMileage || '',
-    };
-
-    dispatch(setCarsFilter(formData));
   };
 
   const handlePriceChange = (selectedOption) => {
-    const value = selectedOption ? selectedOption.value : '';
+    const value = selectedOption ? selectedOption.value : null;
     setSelectedPrice(value);
-
-    const formData = {
-      make: selectedMake || null,
-      price: value,
-      mileageFrom: minMileage || '',
-      mileageTo: maxMileage || '',
-    };
-
-    dispatch(setCarsFilter(formData));
   };
 
   const handleMileageFromChange = (e) => {
@@ -129,11 +124,10 @@ export const FilterForm = () => {
             )}
             isSearchable={false}
             isMulti={false}
-            isClearable
             onChange={handlePriceChange}
             styles={priceStyles}
           />
-          <span>To $</span>
+          <span>To$</span>
         </div>
 
         <div>
