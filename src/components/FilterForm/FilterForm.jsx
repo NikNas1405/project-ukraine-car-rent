@@ -26,8 +26,8 @@ import {
 export const FilterForm = () => {
   const dispatch = useDispatch();
 
-  const [minMileage, setMinMileage] = useState('');
-  const [maxMileage, setMaxMileage] = useState('');
+  const [minMileage, setMinMileage] = useState(0);
+  const [maxMileage, setMaxMileage] = useState(0);
   const [selectedMake, setSelectedMake] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
 
@@ -38,8 +38,8 @@ export const FilterForm = () => {
     const formData = {
       make: selectedMake || null,
       price: selectedPrice || null,
-      mileageFrom: minMileage || '',
-      mileageTo: maxMileage || '',
+      mileageFrom: minMileage || 0,
+      mileageTo: maxMileage || 0,
     };
 
     console.log(formData);
@@ -51,8 +51,8 @@ export const FilterForm = () => {
     const resetFilter = {
       make: null,
       price: null,
-      mileageFrom: '',
-      mileageTo: '',
+      mileageFrom: 0,
+      mileageTo: 0,
     };
     dispatch(setCarsFilter(resetFilter));
   };
@@ -64,8 +64,8 @@ export const FilterForm = () => {
     const formData = {
       make: value,
       price: selectedPrice || null,
-      mileageFrom: minMileage || '',
-      mileageTo: maxMileage || '',
+      mileageFrom: minMileage || 0,
+      mileageTo: maxMileage || 0,
     };
 
     dispatch(setCarsFilter(formData));
@@ -78,8 +78,8 @@ export const FilterForm = () => {
     const formData = {
       make: selectedMake || null,
       price: value,
-      mileageFrom: minMileage || '',
-      mileageTo: maxMileage || '',
+      mileageFrom: minMileage || 0,
+      mileageTo: maxMileage || 0,
     };
 
     dispatch(setCarsFilter(formData));
@@ -135,19 +135,25 @@ export const FilterForm = () => {
           <InputLabel htmlFor="mileage">Сar mileage / km</InputLabel>
           <Holder>
             <Input1
-              type="text"
+              name="mileage"
+              type="number"
               id="from"
-              placeholder="From"
               value={minMileage}
               onChange={handleMileageFromChange}
+              min="0"
+              max="20000"
             />
+            <span>From</span>
             <Input2
-              type="text"
+              name="mileage"
+              type="number"
               id="to"
-              placeholder="To"
               value={maxMileage}
               onChange={handleMileageToChange}
+              min="0"
+              max="20000"
             />
+            <span>To</span>
           </Holder>
         </div>
 

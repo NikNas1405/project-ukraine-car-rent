@@ -39,8 +39,8 @@ const carsSlice = createSlice({
       if (
         action.payload.make === null &&
         action.payload.price === null &&
-        action.payload.mileageFrom === '' &&
-        action.payload.mileageTo === ''
+        action.payload.mileageFrom === 0 &&
+        action.payload.mileageTo === 0
       ) {
         state.isFilter = false;
         state.adverts = [];

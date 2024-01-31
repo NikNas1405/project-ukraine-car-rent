@@ -64,9 +64,9 @@ export const InputLabel = styled.label`
 
 export const Holder = styled.div`
   display: flex;
+  position: relative;
 
   > input {
-    border: none;
     width: 160px;
     height: 48px;
     font-family: inherit;
@@ -77,18 +77,45 @@ export const Holder = styled.div`
     color: ${globalColor.colorBlack};
     align-items: center;
     flex-shrink: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  > span {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    color: ${globalColor.colorBlack};
+
+    &:first-of-type {
+      top: 14px;
+      left: 24px;
+    }
+
+    &:last-of-type {
+      top: 14px;
+      right: 114px;
+    }
   }
 `;
 
 export const Input1 = styled.input`
-  padding: 14px 41px 14px 24px;
+  padding: 14px 8px 14px 74px;
   border-radius: 14px 0px 0px 14px;
+  border: none;
   border-right: 1px solid rgba(138, 138, 137, 0.2);
 `;
 
 export const Input2 = styled.input`
-  padding: 14px 115px 14px 24px;
+  padding: 14px 8px 14px 54px;
   border-radius: 0px 14px 14px 0px;
+  border: none;
 `;
 
 export const carStyles = {
