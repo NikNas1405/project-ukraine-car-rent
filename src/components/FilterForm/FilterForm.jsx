@@ -8,7 +8,11 @@ import { setCarsFilter } from '../../redux/slice/carsSlice';
 
 import Loader from '../Loader/Loader';
 
-import { formattedOptions, priceOptions } from '../../helpers/helpersFunctions';
+import {
+  formatNumber,
+  formattedOptions,
+  priceOptions,
+} from '../../helpers/helpersFunctions';
 import makesArray from '../../helpers/makes.json';
 
 import {
@@ -26,8 +30,8 @@ import {
 export const FilterForm = () => {
   const dispatch = useDispatch();
 
-  const [minMileage, setMinMileage] = useState(0);
-  const [maxMileage, setMaxMileage] = useState(0);
+  const [minMileage, setMinMileage] = useState('');
+  const [maxMileage, setMaxMileage] = useState('');
   const [selectedMake, setSelectedMake] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
 
@@ -38,8 +42,8 @@ export const FilterForm = () => {
     const formData = {
       make: selectedMake || null,
       price: selectedPrice || null,
-      mileageFrom: minMileage || 0,
-      mileageTo: maxMileage || 0,
+      mileageFrom: minMileage || '',
+      mileageTo: maxMileage || '',
     };
 
     console.log(formData);
@@ -51,8 +55,8 @@ export const FilterForm = () => {
     const resetFilter = {
       make: null,
       price: null,
-      mileageFrom: 0,
-      mileageTo: 0,
+      mileageFrom: '',
+      mileageTo: '',
     };
     dispatch(setCarsFilter(resetFilter));
   };
@@ -64,8 +68,8 @@ export const FilterForm = () => {
     const formData = {
       make: value,
       price: selectedPrice || null,
-      mileageFrom: minMileage || 0,
-      mileageTo: maxMileage || 0,
+      mileageFrom: minMileage || '',
+      mileageTo: maxMileage || '',
     };
 
     dispatch(setCarsFilter(formData));
@@ -78,8 +82,8 @@ export const FilterForm = () => {
     const formData = {
       make: selectedMake || null,
       price: value,
-      mileageFrom: minMileage || 0,
-      mileageTo: maxMileage || 0,
+      mileageFrom: minMileage || '',
+      mileageTo: maxMileage || '',
     };
 
     dispatch(setCarsFilter(formData));
@@ -117,7 +121,7 @@ export const FilterForm = () => {
         <div>
           <TitleSelect>Price / 1hour</TitleSelect>
           <Select
-            placeholder={'To $'}
+            placeholder={''}
             id={nanoid()}
             options={formattedOptions(pricesArray)}
             value={formattedOptions(pricesArray).find(
@@ -129,6 +133,7 @@ export const FilterForm = () => {
             onChange={handlePriceChange}
             styles={priceStyles}
           />
+          <span>To $</span>
         </div>
 
         <div>
@@ -136,22 +141,22 @@ export const FilterForm = () => {
           <Holder>
             <Input1
               name="mileage"
-              type="number"
+              type="text"
               id="from"
-              value={minMileage}
+              value={minMileage !== '' ? formatNumber(minMileage) : ''}
               onChange={handleMileageFromChange}
-              min="0"
-              max="20000"
+              pattern="[0-9]*"
+              maxLength="4"
             />
             <span>From</span>
             <Input2
               name="mileage"
-              type="number"
+              type="text"
               id="to"
-              value={maxMileage}
+              value={maxMileage !== '' ? formatNumber(maxMileage) : ''}
               onChange={handleMileageToChange}
-              min="0"
-              max="20000"
+              pattern="[0-9]*"
+              maxLength="4"
             />
             <span>To</span>
           </Holder>

@@ -11,6 +11,17 @@ export const StyledForm = styled.form`
 
   > div {
     position: relative;
+
+    > span {
+      position: absolute;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0em;
+      color: ${globalColor.colorBlack};
+      top: 14px;
+      left: 18px;
+    }
   }
 `;
 

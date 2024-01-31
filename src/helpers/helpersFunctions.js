@@ -1,9 +1,13 @@
-export const formatPriceSelect = string => {
+export const formatPriceSelect = (string) => {
   return string.split('$')[1].toString();
 };
 
 export const formattedOptions = (options) => {
   return [...options.map((option) => ({ value: option, label: option }))];
+};
+
+export const formatNumber = (value) => {
+  return Number(value).toLocaleString('en-US');
 };
 
 const generatePriceArr = () => {

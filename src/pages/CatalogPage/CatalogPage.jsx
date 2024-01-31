@@ -43,12 +43,12 @@ const CatalogPage = () => {
   };
 
   useEffect(() => {
-    if (3 < page) {
+    if (3 < page || isFilter) {
       setShowLoadMoreButton(false);
     } else {
       setShowLoadMoreButton(true);
     }
-  }, [page]);
+  }, [page, isFilter]);
 
   return (
     <>

@@ -9,7 +9,7 @@ export const initialState = {
   formData: {
     make: null,
     price: null,
-    mileageFrom: 0,
-    mileageTo: 0,
+    mileageFrom: '',
+    mileageTo: '',
   },
 };
