@@ -5,11 +5,10 @@ import { globalColor } from '../../styles/root';
 
 export const FooterContainer = styled.footer`
   background-color: ${globalColor.colorBlack};
-  position: fixed;
   right: 0;
   left: 0;
   bottom: 0;
-  height: 80px;
+  height: 150px;
   z-index: 200;
 `;
 

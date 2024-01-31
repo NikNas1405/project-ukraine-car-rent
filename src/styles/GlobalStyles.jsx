@@ -64,7 +64,8 @@ button {
 `;
 
 export const Container = styled.div`
-  padding: 128px 150px;
+  padding: 150px 128px;
   margin: 0 auto;
   width: 1440px;
+  min-height: 1210px;
 `;
