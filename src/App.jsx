@@ -1,12 +1,11 @@
 import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import SharedLayout from './components/SharedLayout/SharedLayout';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
-const ErrorPage = lazy(() => import('./pages/ErrorPage/ErrorPage'));
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </>
