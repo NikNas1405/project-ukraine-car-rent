@@ -5,7 +5,9 @@ import { toast } from 'react-toastify';
 import {
   selectIsLoading,
   selectCars,
-  selectTotalCarsInArr,
+  selectFilterForCars,
+  selectIsFilter,
+  selectFilterCars,
 } from '../../redux/selectors';
 import Loader from '../../components/Loader/Loader';
 import { CarList } from '../../components/CarList/CarList';
@@ -16,9 +18,9 @@ import { fetchCars } from '../../redux/operation/operation';
 const CatalogPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const adverts = useSelector(selectCars);
-  const totalCarsInArray = useSelector(selectTotalCarsInArr);
-
-  console.log(totalCarsInArray);
+  const filtersAdverts = useSelector(selectFilterCars);
+  const isFilter = useSelector(selectIsFilter);
+  const formData = useSelector(selectFilterForCars);
 
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
@@ -27,12 +29,6 @@ const CatalogPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const formData = {
-          make: null,
-          price: null,
-          mileageFrom: 0,
-          mileageTo: 0,
-        };
         await dispatch(fetchCars({ formData, page }));
       } catch (error) {
         toast.error('Sorry, something went wrong, please try again');
@@ -40,35 +36,34 @@ const CatalogPage = () => {
     };
 
     fetchData();
-  }, [dispatch, page]);
+  }, [dispatch, page, formData]);
 
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
-    if (totalCarsInArray < 12 && totalCarsInArray !== 0) {
+    if (3 < page) {
       setShowLoadMoreButton(false);
     } else {
       setShowLoadMoreButton(true);
     }
-  }, [totalCarsInArray]);
+  }, [page]);
 
   return (
     <>
-      {isLoading && <Loader />}
-      {/* {error && (
-        <Error>
-          Sorry. Something went wrong. Please reload the page to try again.
-        </Error>
-      )} */}
-
-      <FilterForm />
-      <CarList
-        adverts={adverts}
-        showLoadMoreButton={showLoadMoreButton}
-        handleLoadMore={handleLoadMore}
-      />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <FilterForm />
+          <CarList
+            adverts={isFilter ? filtersAdverts : adverts}
+            showLoadMoreButton={showLoadMoreButton}
+            handleLoadMore={handleLoadMore}
+          />
+        </>
+      )}
     </>
   );
 };

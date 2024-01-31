@@ -18,8 +18,8 @@ const handleFetchCarsFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
   state.page = action.payload.page;
-  // state.adverts = [...state.adverts, ...action.payload];
-  state.adverts = action.payload;
+  state.adverts = [...state.adverts, ...action.payload];
+  state.filtersAdverts = action.payload;
 };
 
 const carsSlice = createSlice({
@@ -34,14 +34,20 @@ const carsSlice = createSlice({
         (car) => car.id !== action.payload
       );
     },
-    clearCars: (state) => {
-      state.adverts = [];
-    },
-    setPage: (state, action) => {
-      state.page = action.payload;
-    },
     setCarsFilter(state, action) {
-      state.formData = { ...state.formData, ...action.payload };
+      state.formData = action.payload;
+      if (
+        action.payload.make === null &&
+        action.payload.price === null &&
+        action.payload.mileageFrom === '' &&
+        action.payload.mileageTo === ''
+      ) {
+        state.isFilter = false;
+        state.adverts = [];
+        state.filtersAdverts = [];
+      } else {
+        state.isFilter = true;
+      }
     },
   },
   extraReducers: (builder) =>
@@ -61,10 +67,5 @@ export const carsReducer = carsSlice.reducer;
 
 export const persistedCarsReducer = persistReducer(persistConfig, carsReducer);
 
-export const {
-  setCarsFilter,
-  addToFavorites,
-  removeFromFavorites,
-  clearCars,
-  setPage,
-} = carsSlice.actions;
+export const { setCarsFilter, addToFavorites, removeFromFavorites } =
+  carsSlice.actions;

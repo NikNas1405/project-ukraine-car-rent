@@ -18,8 +18,6 @@ export const fetchCars = createAsyncThunk(
       filters.make = make;
     }
 
-    console.log(formData);
-
     const options = new URLSearchParams({
       page,
       ...filters,
@@ -28,6 +26,8 @@ export const fetchCars = createAsyncThunk(
 
     try {
       const response = await axios.get(`${BASE_URL}/advert/?${options}`);
+
+      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { globalColor } from '../../styles/root';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -19,7 +20,7 @@ export const Button = styled.button`
   height: 48px;
   padding: 14px;
 
-  background: #3470ff;
+  background: ${globalColor.colorAccent};
   color: #fff;
   border-radius: 12px;
   border: none;
@@ -33,77 +34,65 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    background: #0b44cd;
+    background: ${globalColor.colorAccent1};
   }
 `;
 
 export const TitleSelect = styled.h3`
-  color: #8a8a89;
+  color: ${globalColor.colorLabel};
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;
 `;
 
 export const InputLabel = styled.label`
-  color: #8a8a89;
+  color: ${globalColor.colorLabel};
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;
 `;
 
-export const Input1 = styled.input`
+export const Holder = styled.div`
   display: flex;
-  width: 160px;
-  height: 48px;
+
+  > input {
+    border: none;
+    width: 160px;
+    height: 48px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+    background: ${globalColor.colorInput};
+    color: ${globalColor.colorBlack};
+    align-items: center;
+    flex-shrink: 0;
+  }
+`;
+
+export const Input1 = styled.input`
   padding: 14px 41px 14px 24px;
-  align-items: center;
-  flex-shrink: 0;
   border-radius: 14px 0px 0px 14px;
-  border: none;
   border-right: 1px solid rgba(138, 138, 137, 0.2);
-
-  background: #f7f7fb;
-  color: #121417;
-
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.11;
 `;
 
 export const Input2 = styled.input`
-  display: flex;
-  width: 160px;
-  height: 48px;
   padding: 14px 115px 14px 24px;
-  align-items: center;
-  flex-shrink: 0;
   border-radius: 0px 14px 14px 0px;
-  border: none;
-
-  background: #f7f7fb;
-  color: #121417;
-
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.11;
-`;
-
-export const Holder = styled.div`
-  display: flex;
 `;
 
 export const carStyles = {
   singleValue: (styles) => ({
     ...styles,
-    color: '#121417',
+    color: '${globalColor.colorBlack}',
   }),
 
   control: (styles, { isSelected }) => ({
     ...styles,
     display: 'flex',
-    color: isSelected ? '#121417' : '#12141733',
+    color: isSelected
+      ? `${globalColor.colorBlack}`
+      : `${globalColor.colorBlack}33`,
     backgroundColor: '#F7F7FB;',
     width: '224px',
     borderRadius: '14px',
@@ -116,18 +105,46 @@ export const carStyles = {
     border: 'none',
     boxShadow: 'none',
     cursor: 'pointer',
+
+    ':hover': {
+      border: `1px solid ${globalColor.colorAccent}`,
+    },
+
+    ':active': {
+      border: `1px solid ${globalColor.colorAccent}`,
+    },
+
+    ':focus': {
+      outline: 'none',
+      border: `1px solid ${globalColor.colorAccent}`,
+    },
   }),
 
   option: (styles, state) => ({
     ...styles,
-    color: state.isSelected ? 'var(--blue)' : 'rgba(18, 20, 23, 0.20)',
+    color: state.isSelected
+      ? `${globalColor.colorBlack}`
+      : `${globalColor.colorBlack}33`,
     fontFamily: 'Manrope, sans-serif',
     fontWeight: '500',
     fontSize: '16px',
-
     cursor: 'pointer',
     lineHeight: '20px',
     backgroundColor: 'none',
+
+    ':hover': {
+      color: `${globalColor.colorAccent}`,
+    },
+
+    ':active': {
+      color: `${globalColor.colorAccent}`,
+      backgroundColor: `${globalColor.colorLabel}`,
+    },
+
+    ':focus': {
+      outline: 'none',
+      color: ` ${globalColor.colorAccent}`,
+    },
   }),
 
   menu: (styles) => ({
@@ -180,27 +197,29 @@ export const carStyles = {
   dropdownIndicator: (styles, state) => ({
     ...styles,
     padding: 0,
-    color: '#121417',
+    color: '${globalColor.colorBlack}',
     transition: 'all .3s ease',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
   }),
 
   placeholder: (styles) => ({
     ...styles,
-    color: '#121417',
+    color: '${globalColor.colorBlack}',
   }),
 };
 
 export const priceStyles = {
   singleValue: (styles) => ({
     ...styles,
-    color: '#121417',
+    color: '${globalColor.colorBlack}',
   }),
 
   control: (styles, { isSelected }) => ({
     ...styles,
     display: 'flex',
-    color: isSelected ? '#121417' : '#12141733',
+    color: isSelected
+      ? '${globalColor.colorBlack}'
+      : '${globalColor.colorBlack}33',
     backgroundColor: '#F7F7FB;',
     width: '125px',
     borderRadius: '14px',
@@ -213,17 +232,46 @@ export const priceStyles = {
     border: 'none',
     boxShadow: 'none',
     cursor: 'pointer',
+
+    ':hover': {
+      border: `1px solid ${globalColor.colorAccent}`,
+    },
+
+    ':active': {
+      border: `1px solid ${globalColor.colorAccent}`,
+    },
+
+    ':focus': {
+      outline: 'none',
+      border: `1px solid ${globalColor.colorAccent}`,
+    },
   }),
 
   option: (styles, state) => ({
     ...styles,
-    color: state.isSelected ? 'var(--blue)' : 'rgba(18, 20, 23, 0.20)',
+    color: state.isSelected
+      ? `${globalColor.colorAccent}`
+      : 'rgba(18, 20, 23, 0.20)',
     fontFamily: 'Manrope, sans-serif',
     fontWeight: '500',
     fontSize: '16px',
     cursor: 'pointer',
     lineHeight: '20px',
     backgroundColor: 'none',
+
+    ':hover': {
+      color: `${globalColor.colorAccent}`,
+    },
+
+    ':active': {
+      color: `${globalColor.colorAccent}`,
+      backgroundColor: `${globalColor.colorLabel}`,
+    },
+
+    ':focus': {
+      outline: 'none',
+      color: ` ${globalColor.colorAccent}`,
+    },
   }),
 
   menu: (styles) => ({
@@ -274,7 +322,7 @@ export const priceStyles = {
     '&:after': {
       content: !state.value.length ? '"$"' : '""',
       position: 'absolute',
-      color: '#121417',
+      color: '${globalColor.colorBlack}',
       right: '20px',
       top: '0px',
     },
@@ -283,12 +331,12 @@ export const priceStyles = {
   dropdownIndicator: (styles, state) => ({
     ...styles,
     padding: 0,
-    color: '#121417',
+    color: '${globalColor.colorBlack}',
     transition: 'all .3s ease',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
   }),
   placeholder: (styles) => ({
     ...styles,
-    color: '#121417',
+    color: '${globalColor.colorBlack}',
   }),
 };
