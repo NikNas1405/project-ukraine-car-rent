@@ -7,7 +7,11 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: flex-end;
   gap: 18px;
-  margin: 0 auto;
+  margin: 26px auto 0;
+
+  > div {
+    position: relative;
+  }
 `;
 
 export const Button = styled.button`
@@ -43,6 +47,9 @@ export const TitleSelect = styled.h3`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;
+  position: absolute;
+  top: -26px;
+  left: 0;
 `;
 
 export const InputLabel = styled.label`
@@ -50,6 +57,9 @@ export const InputLabel = styled.label`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.28;
+  position: absolute;
+  top: -26px;
+  left: 0;
 `;
 
 export const Holder = styled.div`
@@ -84,16 +94,14 @@ export const Input2 = styled.input`
 export const carStyles = {
   singleValue: (styles) => ({
     ...styles,
-    color: '${globalColor.colorBlack}',
+    color: globalColor.colorBlack,
   }),
 
   control: (styles, { isSelected }) => ({
     ...styles,
     display: 'flex',
-    color: isSelected
-      ? `${globalColor.colorBlack}`
-      : `${globalColor.colorBlack}33`,
-    backgroundColor: '#F7F7FB;',
+    color: isSelected ? globalColor.colorBlack : `${globalColor.colorBlack}33`,
+    backgroundColor: '#F7F7FB',
     width: '224px',
     borderRadius: '14px',
     padding: '14px 18px',
@@ -197,30 +205,28 @@ export const carStyles = {
   dropdownIndicator: (styles, state) => ({
     ...styles,
     padding: 0,
-    color: '${globalColor.colorBlack}',
+    color: `${globalColor.colorBlack}`,
     transition: 'all .3s ease',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
   }),
 
   placeholder: (styles) => ({
     ...styles,
-    color: '${globalColor.colorBlack}',
+    color: globalColor.colorBlack,
   }),
 };
 
 export const priceStyles = {
   singleValue: (styles) => ({
     ...styles,
-    color: '${globalColor.colorBlack}',
+    color: globalColor.colorBlack,
   }),
 
   control: (styles, { isSelected }) => ({
     ...styles,
     display: 'flex',
-    color: isSelected
-      ? '${globalColor.colorBlack}'
-      : '${globalColor.colorBlack}33',
-    backgroundColor: '#F7F7FB;',
+    color: isSelected ? globalColor.colorBlack : `${globalColor.colorBlack}33`,
+    backgroundColor: '#F7F7FB',
     width: '125px',
     borderRadius: '14px',
     padding: '14px 18px',
@@ -322,7 +328,7 @@ export const priceStyles = {
     '&:after': {
       content: !state.value.length ? '"$"' : '""',
       position: 'absolute',
-      color: '${globalColor.colorBlack}',
+      color: `${globalColor.colorBlack}`,
       right: '20px',
       top: '0px',
     },
@@ -331,12 +337,13 @@ export const priceStyles = {
   dropdownIndicator: (styles, state) => ({
     ...styles,
     padding: 0,
-    color: '${globalColor.colorBlack}',
+    color: `${globalColor.colorBlack}`,
     transition: 'all .3s ease',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : null,
   }),
+
   placeholder: (styles) => ({
     ...styles,
-    color: '${globalColor.colorBlack}',
+    color: globalColor.colorBlack,
   }),
 };

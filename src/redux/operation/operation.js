@@ -11,7 +11,6 @@ export const fetchCars = createAsyncThunk(
   'advert/fetchCars',
   async ({ formData, page }, thunkAPI) => {
     const { make } = formData;
-    // const { make, price, mileageFrom, mileageTo } = formData;
     const filters = {};
 
     if (make !== null && make) {
@@ -26,8 +25,6 @@ export const fetchCars = createAsyncThunk(
 
     try {
       const response = await axios.get(`${BASE_URL}/advert/?${options}`);
-
-      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);
