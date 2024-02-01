@@ -1,6 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
+import { globalColor } from '../styles/root';
+
 export const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -10,11 +12,11 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFF;
+  background-color: ${globalColor.colorWhite};;
    font-family: 'Manrope', sans-serif;
    font-weight: 400;
    font-style: normal;
-   color: #121417;
+   color: ${globalColor.colorBlack};
    width: 100%;
    height: 100vh;
    margin: 0;
@@ -26,7 +28,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color:rgba(239, 237, 232, 0.10);
+    background-color: ${globalColor.colorLabel};
     border-radius: 12px;
   }
 }
