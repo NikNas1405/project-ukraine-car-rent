@@ -1,4 +1,4 @@
-import{s as o,g as r,N as n,j as e,C as t}from"./index-11dd8fbb.js";const a="/project-ukraine-car-rent/assets/hero-ec1100c2.jpg",i=o.section`
+import{s as o,g as r,N as n,j as e,C as t}from"./index-e9e34132.js";const a="/project-ukraine-car-rent/assets/hero-ec1100c2.jpg",i=o.section`
   width: 100%;
   margin: 0 auto;
   padding: 300px 0;
