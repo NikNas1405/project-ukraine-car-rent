@@ -282,7 +282,7 @@ export const priceStyles = {
       ? `${globalColor.colorBlack}`
       : `${globalColor.colorBlack}33`,
     backgroundColor: '#F7F7FB',
-    width: '125px',
+    width: '145px',
     borderRadius: '14px',
     padding: '14px 18px',
     lineHeight: '1.11',
@@ -368,6 +368,12 @@ export const priceStyles = {
 
   indicatorSeparator: () => ({
     display: 'none',
+  }),
+
+  clearIndicator: (provided) => ({
+    ...provided,
+    padding: 0,
+    cursor: 'pointer',
   }),
 
   valueContainer: (styles) => ({

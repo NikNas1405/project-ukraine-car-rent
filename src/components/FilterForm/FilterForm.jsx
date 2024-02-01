@@ -27,7 +27,7 @@ import {
   TitleSelect,
 } from './FilterForm.styled';
 
-export const FilterForm = () => {
+export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
   const dispatch = useDispatch();
 
   const initialSelectedMake = localStorage.getItem('selectedMake') || null;
@@ -51,31 +51,32 @@ export const FilterForm = () => {
 
     const formData = {
       make: selectedMake,
-      price: selectedPrice,
-      mileageFrom: minMileage,
-      mileageTo: maxMileage,
     };
+
+    setPage(1);
 
     dispatch(setCarsFilter(formData));
     setIsButtonDisabled(true);
+    setShowLoadMoreButton(true);
   };
 
-  const handleButtonResetClick = () => {
-    const resetFilter = {
-      make: null,
-      price: null,
-      mileageFrom: '',
-      mileageTo: '',
-    };
+  // const handleButtonResetClick = () => {
+  //   const resetFilter = {
+  //     make: null,
+  //     price: null,
+  //     mileageFrom: '',
+  //     mileageTo: '',
+  //   };
 
-    setSelectedMake(null);
-    setSelectedPrice(null);
-    setMinMileage('');
-    setMaxMileage('');
+  //   setSelectedMake(null);
+  //   setSelectedPrice(null);
+  //   setMinMileage('');
+  //   setMaxMileage('');
 
-    dispatch(setCarsFilter(resetFilter));
-    setIsButtonDisabled(true);
-  };
+  //   dispatch(setCarsFilter(resetFilter));
+  //   setIsButtonDisabled(true);
+  //   setShowLoadMoreButton(true);
+  // };
 
   const handleMakeChange = (selectedOption) => {
     const value = selectedOption ? selectedOption.value : null;
@@ -133,6 +134,7 @@ export const FilterForm = () => {
             isMulti={false}
             onChange={handlePriceChange}
             styles={priceStyles}
+            isClearable
           />
           <span>To$</span>
         </div>
@@ -170,14 +172,14 @@ export const FilterForm = () => {
         >
           Search
         </Button>
-        <Button
+        {/* <Button
           disabled={isButtonDisabled}
           className={!isButtonDisabled ? 'disabled' : ''}
           type="button"
           onClick={handleButtonResetClick}
         >
-          Reset
-        </Button>
+          Reset All
+        </Button> */}
       </StyledForm>
 
       <Suspense fallback={<Loader />}>

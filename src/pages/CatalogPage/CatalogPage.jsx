@@ -58,7 +58,10 @@ const CatalogPage = () => {
         <Loader />
       ) : (
         <>
-          <FilterForm />
+          <FilterForm
+            setShowLoadMoreButton={setShowLoadMoreButton}
+            setPage={setPage}
+          />
           <CarList
             adverts={isFilter ? filtersAdverts : adverts}
             showLoadMoreButton={showLoadMoreButton}

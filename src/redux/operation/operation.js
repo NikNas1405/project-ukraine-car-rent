@@ -12,16 +12,22 @@ export const fetchCars = createAsyncThunk(
   async ({ formData, page }, thunkAPI) => {
     const { make } = formData;
     const filters = {};
+    let options;
 
     if (make !== null && make) {
       filters.make = make;
+      options = new URLSearchParams({
+        ...filters,
+        ...defaultParams,
+      });
     }
 
-    const options = new URLSearchParams({
-      page,
-      ...filters,
-      ...defaultParams,
-    });
+    if (make === null) {
+      options = new URLSearchParams({
+        page,
+        ...defaultParams,
+      });
+    }
 
     try {
       const response = await axios.get(`${BASE_URL}/advert/?${options}`);

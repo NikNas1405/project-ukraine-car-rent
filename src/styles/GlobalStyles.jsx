@@ -69,4 +69,5 @@ export const Container = styled.main`
   padding: 150px 128px;
   margin: 0 auto;
   width: 1440px;
+  min-height: 100vh;
 `;
