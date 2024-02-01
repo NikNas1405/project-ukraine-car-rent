@@ -81,14 +81,35 @@ export const Description = styled.section`
   > ol {
     margin-bottom: 60px;
     display: flex;
+    flex-direction: column;
     text-align: center;
     gap: 24px;
 
     > li {
       padding: 8px;
-      border: 1px solid ${globalColor.colorInputBorder};
+
       border-radius: 12px;
-      flex-basis: calc((100% - 2 * 24px) / 3);
+      width: 400px;
+      height: 80px;
+
+      &:first-of-type {
+        margin-left: 100px;
+        border: 1px solid ${globalColor.colorAccent1};
+      }
+      &:nth-of-type(2) {
+        margin-left: 300px;
+        border: 1px solid ${globalColor.colorAccent1}80;
+      }
+      &:nth-of-type(3) {
+        margin-left: 500px;
+        border: 1px solid ${globalColor.colorAccent1}60;
+      }
+      &:nth-of-type(4) {
+        margin-right: 0;
+        margin-left: auto;
+
+        border: 1px solid ${globalColor.colorAccent1}40;
+      }
     }
   }
 `;
