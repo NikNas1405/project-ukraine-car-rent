@@ -60,24 +60,7 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
     setShowLoadMoreButton(true);
   };
 
-  // const handleButtonResetClick = () => {
-  //   const resetFilter = {
-  //     make: null,
-  //     price: null,
-  //     mileageFrom: '',
-  //     mileageTo: '',
-  //   };
-
-  //   setSelectedMake(null);
-  //   setSelectedPrice(null);
-  //   setMinMileage('');
-  //   setMaxMileage('');
-
-  //   dispatch(setCarsFilter(resetFilter));
-  //   setIsButtonDisabled(true);
-  //   setShowLoadMoreButton(true);
-  // };
-
+  
   const handleMakeChange = (selectedOption) => {
     const value = selectedOption ? selectedOption.value : null;
     setSelectedMake(value);
@@ -172,14 +155,6 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
         >
           Search
         </Button>
-        {/* <Button
-          disabled={isButtonDisabled}
-          className={!isButtonDisabled ? 'disabled' : ''}
-          type="button"
-          onClick={handleButtonResetClick}
-        >
-          Reset All
-        </Button> */}
       </StyledForm>
 
       <Suspense fallback={<Loader />}>
