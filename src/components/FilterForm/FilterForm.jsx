@@ -37,6 +37,7 @@ export const FilterForm = () => {
   const [maxMileage, setMaxMileage] = useState('');
   const [selectedMake, setSelectedMake] = useState(initialSelectedMake);
   const [selectedPrice, setSelectedPrice] = useState(initialSelectedPrice);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const pricesArray = priceOptions.map((item) => item.value);
 
@@ -56,6 +57,7 @@ export const FilterForm = () => {
     };
 
     dispatch(setCarsFilter(formData));
+    setIsButtonDisabled(true);
   };
 
   const handleButtonResetClick = () => {
@@ -72,26 +74,31 @@ export const FilterForm = () => {
     setMaxMileage('');
 
     dispatch(setCarsFilter(resetFilter));
+    setIsButtonDisabled(true);
   };
 
   const handleMakeChange = (selectedOption) => {
     const value = selectedOption ? selectedOption.value : null;
     setSelectedMake(value);
+    setIsButtonDisabled(false);
   };
 
   const handlePriceChange = (selectedOption) => {
     const value = selectedOption ? selectedOption.value : null;
     setSelectedPrice(value);
+    setIsButtonDisabled(false);
   };
 
   const handleMileageFromChange = (e) => {
     const value = e.target.value;
     setMinMileage(value);
+    setIsButtonDisabled(false);
   };
 
   const handleMileageToChange = (e) => {
     const value = e.target.value;
     setMaxMileage(value);
+    setIsButtonDisabled(false);
   };
 
   return (
@@ -156,10 +163,16 @@ export const FilterForm = () => {
           </Holder>
         </div>
 
-        <Button type="submit" >
+        <Button
+          type="submit"
+          disabled={isButtonDisabled}
+          className={!isButtonDisabled ? 'disabled' : ''}
+        >
           Search
         </Button>
         <Button
+          disabled={isButtonDisabled}
+          className={!isButtonDisabled ? 'disabled' : ''}
           type="button"
           onClick={handleButtonResetClick}
         >

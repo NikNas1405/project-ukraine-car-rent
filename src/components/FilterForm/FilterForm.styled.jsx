@@ -36,7 +36,7 @@ export const Button = styled.button`
   padding: 14px;
 
   background: ${globalColor.colorAccent};
-  color: #fff;
+  color: ${globalColor.colorWhite};
   border-radius: 12px;
   border: none;
 
@@ -50,6 +50,11 @@ export const Button = styled.button`
   &:hover,
   &:focus {
     background: ${globalColor.colorAccent1};
+  }
+
+  &:disabled {
+    background-color: ${globalColor.colorLabel};
+    cursor: not-allowed;
   }
 `;
 
