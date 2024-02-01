@@ -6,17 +6,15 @@ import { Header } from 'components/Header/Header';
 import { Footer } from 'components/Footer/Footer';
 import Loader from '../Loader/Loader';
 
-import { Container, GlobalStyles } from '../../styles/GlobalStyles';
+import { GlobalStyles } from '../../styles/GlobalStyles';
 
 const SharedLayout = () => {
   return (
     <>
       <Header />
-      <Container>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-      </Container>
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
       <ToastContainer />
       <Footer />
       <GlobalStyles />

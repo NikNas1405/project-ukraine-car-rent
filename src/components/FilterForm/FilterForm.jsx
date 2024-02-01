@@ -156,8 +156,13 @@ export const FilterForm = () => {
           </Holder>
         </div>
 
-        <Button type="submit">Search</Button>
-        <Button type="button" onClick={handleButtonResetClick}>
+        <Button type="submit" >
+          Search
+        </Button>
+        <Button
+          type="button"
+          onClick={handleButtonResetClick}
+        >
           Reset
         </Button>
       </StyledForm>

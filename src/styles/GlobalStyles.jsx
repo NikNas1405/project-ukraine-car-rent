@@ -35,7 +35,7 @@ a {
   text-decoration: none;
 }
 
-  ul {
+  ul, ol {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -63,9 +63,8 @@ button {
  }
 `;
 
-export const Container = styled.div`
+export const Container = styled.main`
   padding: 150px 128px;
   margin: 0 auto;
   width: 1440px;
-  min-height: 1210px;
 `;

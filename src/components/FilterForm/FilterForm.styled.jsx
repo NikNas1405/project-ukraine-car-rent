@@ -171,8 +171,8 @@ export const carStyles = {
   option: (styles, state) => ({
     ...styles,
     color: state.isSelected
-      ? `${globalColor.colorBlack}`
-      : `${globalColor.colorBlack}33`,
+      ? `${globalColor.colorAccent}`
+      : 'rgba(18, 20, 23, 0.20)',
     fontFamily: 'Manrope, sans-serif',
     fontWeight: '500',
     fontSize: '16px',

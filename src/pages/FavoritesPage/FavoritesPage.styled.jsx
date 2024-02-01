@@ -3,10 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 import { globalColor } from '../../styles/root';
 
-export const StyledDiv = styled.div`
-  padding-top: 80px;
-`;
-
 export const Nothing = styled.div`
   display: flex;
   flex-direction: column;

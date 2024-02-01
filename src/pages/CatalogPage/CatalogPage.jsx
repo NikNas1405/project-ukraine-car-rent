@@ -6,6 +6,8 @@ import Loader from '../../components/Loader/Loader';
 import { CarList } from '../../components/CarList/CarList';
 import { FilterForm } from '../../components/FilterForm/FilterForm';
 
+import { Container } from '../../styles/GlobalStyles';
+
 import { fetchCars } from '../../redux/operation/operation';
 import {
   selectIsLoading,
@@ -43,7 +45,7 @@ const CatalogPage = () => {
   };
 
   useEffect(() => {
-    if (3 < page || isFilter) {
+    if (3 <= page || isFilter) {
       setShowLoadMoreButton(false);
     } else {
       setShowLoadMoreButton(true);
@@ -51,7 +53,7 @@ const CatalogPage = () => {
   }, [page, isFilter]);
 
   return (
-    <>
+    <Container>
       {isLoading ? (
         <Loader />
       ) : (
@@ -64,7 +66,7 @@ const CatalogPage = () => {
           />
         </>
       )}
-    </>
+    </Container>
   );
 };
 

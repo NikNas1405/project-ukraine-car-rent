@@ -5,15 +5,17 @@ import { CarList } from '../../components/CarList/CarList';
 
 import car from '../../assets/car.jpg';
 
-import { StyledDiv, Nothing, ButtonLink } from './FavoritesPage.styled';
+import { Nothing, ButtonLink } from './FavoritesPage.styled';
 import { selectFavorites, selectIsLoading } from '../../redux/selectors';
+
+import { Container } from "../../styles/GlobalStyles";
 
 const FavoritesPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const favorites = useSelector(selectFavorites);
 
   return (
-    <StyledDiv>
+    <Container>
       {isLoading ? (
         <Loader />
       ) : (
@@ -35,7 +37,7 @@ const FavoritesPage = () => {
           )}
         </>
       )}
-    </StyledDiv>
+    </Container>
   );
 };
 
