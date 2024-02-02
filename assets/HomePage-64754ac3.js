@@ -1,4 +1,4 @@
-import{s as o,g as r,N as n,j as e,C as t}from"./index-00771da0.js";const i="/project-ukraine-car-rent/assets/hero-ec1100c2.jpg",a=o.section`
+import{s as o,g as r,N as n,j as e,C as t}from"./index-08ea555b.js";const i="/project-ukraine-car-rent/assets/hero-ec1100c2.jpg",a=o.section`
   width: 100%;
   margin: 0 auto;
   padding: 300px 0;
@@ -53,6 +53,7 @@ import{s as o,g as r,N as n,j as e,C as t}from"./index-00771da0.js";const i="/pr
   font-size: 16px;
   line-height: 1.5;
   color: ${r.colorBlack};
+  text-align: center;
 
   > h2 {
     font-size: 24px;
@@ -69,6 +70,7 @@ import{s as o,g as r,N as n,j as e,C as t}from"./index-00771da0.js";const i="/pr
     margin-bottom: 60px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
     gap: 24px;
 
@@ -80,21 +82,15 @@ import{s as o,g as r,N as n,j as e,C as t}from"./index-00771da0.js";const i="/pr
       height: 80px;
 
       &:first-of-type {
-        margin-left: 100px;
         border: 1px solid ${r.colorAccent1};
       }
       &:nth-of-type(2) {
-        margin-left: 300px;
         border: 1px solid ${r.colorAccent1}80;
       }
       &:nth-of-type(3) {
-        margin-left: 500px;
         border: 1px solid ${r.colorAccent1}60;
       }
       &:nth-of-type(4) {
-        margin-right: 0;
-        margin-left: auto;
-
         border: 1px solid ${r.colorAccent1}40;
       }
     }
