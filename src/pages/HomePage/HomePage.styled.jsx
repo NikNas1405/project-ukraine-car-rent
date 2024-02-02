@@ -66,6 +66,7 @@ export const Description = styled.section`
   font-size: 16px;
   line-height: 1.5;
   color: ${globalColor.colorBlack};
+  text-align: center;
 
   > h2 {
     font-size: 24px;
@@ -82,6 +83,7 @@ export const Description = styled.section`
     margin-bottom: 60px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
     gap: 24px;
 
@@ -93,21 +95,15 @@ export const Description = styled.section`
       height: 80px;
 
       &:first-of-type {
-        margin-left: 100px;
         border: 1px solid ${globalColor.colorAccent1};
       }
       &:nth-of-type(2) {
-        margin-left: 300px;
         border: 1px solid ${globalColor.colorAccent1}80;
       }
       &:nth-of-type(3) {
-        margin-left: 500px;
         border: 1px solid ${globalColor.colorAccent1}60;
       }
       &:nth-of-type(4) {
-        margin-right: 0;
-        margin-left: auto;
-
         border: 1px solid ${globalColor.colorAccent1}40;
       }
     }

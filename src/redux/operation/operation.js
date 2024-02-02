@@ -14,7 +14,7 @@ export const fetchCars = createAsyncThunk(
     const filters = {};
     let options;
 
-    if (make !== null && make) {
+    if (make !== null) {
       filters.make = make;
       options = new URLSearchParams({
         ...filters,
@@ -22,7 +22,7 @@ export const fetchCars = createAsyncThunk(
       });
     }
 
-    if (make === null) {
+    if (make === null || make === 'null') {
       options = new URLSearchParams({
         page,
         ...defaultParams,

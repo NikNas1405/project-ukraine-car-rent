@@ -8,5 +8,8 @@ export const initialState = {
   page: 1,
   formData: {
     make: null,
+    price: null,
+    minMileage: '',
+    maxMileage: '',
   },
 };
