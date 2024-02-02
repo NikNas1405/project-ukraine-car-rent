@@ -7,6 +7,7 @@ import { CarList } from '../../components/CarList/CarList';
 import { FilterForm } from '../../components/FilterForm/FilterForm';
 
 import { Container } from '../../styles/GlobalStyles';
+import { Nothing } from '../FavoritesPage/FavoritesPage.styled';
 
 import { fetchCars } from '../../redux/operation/operation';
 import {
@@ -62,11 +63,36 @@ const CatalogPage = () => {
             setShowLoadMoreButton={setShowLoadMoreButton}
             setPage={setPage}
           />
-          <CarList
-            adverts={isFilter ? filtersAdverts : adverts}
-            showLoadMoreButton={showLoadMoreButton}
-            handleLoadMore={handleLoadMore}
-          />
+
+          {isFilter ? (
+            filtersAdverts.length > 0 ? (
+              <CarList
+                adverts={filtersAdverts}
+                showLoadMoreButton={showLoadMoreButton}
+                handleLoadMore={handleLoadMore}
+              />
+            ) : (
+              <Nothing>
+                <p>
+                  It appears like there are no offers matching your request,
+                  please try again with different parameters.
+                </p>
+              </Nothing>
+            )
+          ) : adverts.length > 0 ? (
+            <CarList
+              adverts={adverts}
+              showLoadMoreButton={showLoadMoreButton}
+              handleLoadMore={handleLoadMore}
+            />
+          ) : (
+            <Nothing>
+              <p>
+                It appears like there are no offers matching your request,
+                please try again with different parameters.
+              </p>
+            </Nothing>
+          )}
         </>
       )}
     </Container>

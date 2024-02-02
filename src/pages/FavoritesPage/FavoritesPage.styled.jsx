@@ -10,6 +10,7 @@ export const Nothing = styled.div`
   justify-content: center;
   gap: 20px;
   text-align: center;
+  margin-top: 20px;
 
   > p {
     font-size: 16px;
