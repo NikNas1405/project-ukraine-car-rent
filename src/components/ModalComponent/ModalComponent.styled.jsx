@@ -70,6 +70,7 @@ export const MainInfo = styled.ul`
   line-height: 1.5;
   gap: 6px;
   margin-bottom: 14px;
+  width: 400px;
 
   > li {
     padding-right: 6px;
