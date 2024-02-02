@@ -35,32 +35,40 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
 
   const [minMileage, setMinMileage] = useState('');
   const [maxMileage, setMaxMileage] = useState('');
-  const [selectedMake, setSelectedMake] = useState(initialSelectedMake);
-  const [selectedPrice, setSelectedPrice] = useState(initialSelectedPrice);
+  const [selectedMake, setSelectedMake] = useState(
+    initialSelectedMake === 'null' ? null : initialSelectedMake
+  );
+  const [selectedPrice, setSelectedPrice] = useState(
+    !isNaN(initialSelectedPrice) ? Number(initialSelectedPrice) : null
+  );
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const pricesArray = priceOptions.map((item) => item.value);
 
   useEffect(() => {
-    localStorage.setItem('selectedMake', selectedMake);
     localStorage.setItem('selectedPrice', selectedPrice);
-  }, [selectedMake, selectedPrice]);
+  }, [selectedPrice]);
+
+  useEffect(() => {
+    localStorage.setItem('selectedMake', selectedMake);
+  }, [selectedMake]);
 
   const applyFilter = (e) => {
     e.preventDefault();
 
     const formData = {
       make: selectedMake,
+      price: selectedPrice,
+      minMileage: minMileage,
+      maxMileage: maxMileage,
     };
 
     setPage(1);
-
     dispatch(setCarsFilter(formData));
     setIsButtonDisabled(true);
     setShowLoadMoreButton(true);
   };
 
-  
   const handleMakeChange = (selectedOption) => {
     const value = selectedOption ? selectedOption.value : null;
     setSelectedMake(value);
@@ -95,7 +103,7 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
             id={nanoid()}
             options={formattedOptions(makesArray)}
             value={formattedOptions(makesArray).find(
-              (option) => option.value === selectedMake
+              (option) => option.value == selectedMake
             )}
             isSearchable={false}
             isMulti={false}
@@ -111,7 +119,7 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
             id={nanoid()}
             options={formattedOptions(pricesArray)}
             value={formattedOptions(pricesArray).find(
-              (option) => option.value === selectedPrice
+              (option) => option.value == selectedPrice
             )}
             isSearchable={false}
             isMulti={false}

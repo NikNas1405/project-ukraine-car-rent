@@ -10,28 +10,45 @@ const defaultParams = {
 export const fetchCars = createAsyncThunk(
   'advert/fetchCars',
   async ({ formData, page }, thunkAPI) => {
-    const { make } = formData;
-    const filters = {};
-    let options;
+    const { make, price, minMileage, maxMileage } = formData;
 
-    if (make !== null) {
-      filters.make = make;
-      options = new URLSearchParams({
-        ...filters,
-        ...defaultParams,
-      });
-    }
-
-    if (make === null || make === 'null') {
-      options = new URLSearchParams({
-        page,
-        ...defaultParams,
-      });
-    }
+    console.log(formData);
 
     try {
-      const response = await axios.get(`${BASE_URL}/advert/?${options}`);
-      return response.data;
+      const response = await axios.get(`${BASE_URL}/advert`);
+      let filteredCars = response.data;
+
+      if (make !== null) {
+        filteredCars = filteredCars.filter((car) => car.make === make);
+      }
+
+      if (price !== null) {
+        filteredCars = filteredCars.filter((car) => {
+          const rentalPriceNumeric = parseInt(
+            car.rentalPrice.replace(/\D/g, ''),
+            10
+          );
+          return rentalPriceNumeric <= price;
+        });
+      }
+
+      if (minMileage !== '') {
+        filteredCars = filteredCars.filter(
+          (car) => Number(car.mileage) >= Number(minMileage)
+        );
+      }
+
+      if (maxMileage !== '') {
+        filteredCars = filteredCars.filter(
+          (car) => Number(car.mileage) >= Number(maxMileage)
+        );
+      }
+
+      const startIndex = (page - 1) * defaultParams.limit;
+      const endIndex = startIndex + defaultParams.limit;
+      const paginatedCars = filteredCars.slice(startIndex, endIndex);
+
+      return paginatedCars;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue(error.message);
