@@ -10,9 +10,10 @@ const defaultParams = {
 export const fetchCars = createAsyncThunk(
   'advert/fetchCars',
   async ({ formData, page }, thunkAPI) => {
-    const { make, price } = formData;
-
-    console.log(formData);
+    const {
+      make,
+      price,
+    } = formData;
 
     try {
       const response = await axios.get(`${BASE_URL}/advert`);
