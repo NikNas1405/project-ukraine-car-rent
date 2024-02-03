@@ -10,7 +10,7 @@ const defaultParams = {
 export const fetchCars = createAsyncThunk(
   'advert/fetchCars',
   async ({ formData, page }, thunkAPI) => {
-    const { make, price, minMileage, maxMileage } = formData;
+    const { make, price } = formData;
 
     console.log(formData);
 
@@ -30,18 +30,6 @@ export const fetchCars = createAsyncThunk(
           );
           return rentalPriceNumeric <= price;
         });
-      }
-
-      if (minMileage !== '') {
-        filteredCars = filteredCars.filter(
-          (car) => Number(car.mileage) >= Number(minMileage)
-        );
-      }
-
-      if (maxMileage !== '') {
-        filteredCars = filteredCars.filter(
-          (car) => Number(car.mileage) >= Number(maxMileage)
-        );
       }
 
       const startIndex = (page - 1) * defaultParams.limit;

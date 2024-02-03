@@ -64,22 +64,13 @@ const CatalogPage = () => {
             setPage={setPage}
           />
 
-          {isFilter ? (
-            filtersAdverts.length > 0 ? (
-              <CarList
-                adverts={filtersAdverts}
-                showLoadMoreButton={showLoadMoreButton}
-                handleLoadMore={handleLoadMore}
-              />
-            ) : (
-              <Nothing>
-                <p>
-                  It appears like there are no offers matching your request,
-                  please try again with different parameters.
-                </p>
-              </Nothing>
-            )
-          ) : adverts.length > 0 ? (
+          {isFilter && filtersAdverts.length > 0 ? (
+            <CarList
+              adverts={filtersAdverts}
+              showLoadMoreButton={showLoadMoreButton}
+              handleLoadMore={handleLoadMore}
+            />
+          ) : !isFilter && adverts.length > 0 ? (
             <CarList
               adverts={adverts}
               showLoadMoreButton={showLoadMoreButton}
