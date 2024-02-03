@@ -32,9 +32,11 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
 
   const initialSelectedMake = localStorage.getItem('selectedMake') || null;
   const initialSelectedPrice = localStorage.getItem('selectedPrice') || null;
+  const initialMinMileage = localStorage.getItem('minMileage') || '';
+  const initialMaxMileage = localStorage.getItem('maxMileage') || '';
 
-  const [minMileage, setMinMileage] = useState('');
-  const [maxMileage, setMaxMileage] = useState('');
+  const [minMileage, setMinMileage] = useState(initialMinMileage);
+  const [maxMileage, setMaxMileage] = useState(initialMaxMileage);
   const [selectedMake, setSelectedMake] = useState(
     initialSelectedMake === 'null' ? null : initialSelectedMake
   );
@@ -52,6 +54,14 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
   useEffect(() => {
     localStorage.setItem('selectedMake', selectedMake);
   }, [selectedMake]);
+
+  useEffect(() => {
+    localStorage.setItem('minMileage', minMileage);
+  }, [minMileage]);
+
+  useEffect(() => {
+    localStorage.setItem('maxMileage', maxMileage);
+  }, [maxMileage]);
 
   const applyFilter = (e) => {
     e.preventDefault();
