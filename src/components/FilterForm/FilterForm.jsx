@@ -9,11 +9,7 @@ import { setCarsFilter } from '../../redux/slice/carsSlice';
 import makesArray from '../../helpers/makes.json';
 import Loader from '../Loader/Loader';
 
-import {
-  formatNumber,
-  formattedOptions,
-  priceOptions,
-} from '../../helpers/helpersFunctions';
+import { formattedOptions, priceOptions } from '../../helpers/helpersFunctions';
 
 import {
   StyledForm,
@@ -46,6 +42,7 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const pricesArray = priceOptions.map((item) => item.value);
+
 
   useEffect(() => {
     localStorage.setItem('selectedPrice', selectedPrice);
@@ -147,7 +144,7 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
               name="mileage"
               type="text"
               id="from"
-              value={minMileage !== '' ? formatNumber(minMileage) : ''}
+              value={minMileage !== '' ? minMileage : ''}
               onChange={handleMileageFromChange}
               pattern="[0-9]*"
               maxLength="4"
@@ -157,7 +154,7 @@ export const FilterForm = ({ setShowLoadMoreButton, setPage }) => {
               name="mileage"
               type="text"
               id="to"
-              value={maxMileage !== '' ? formatNumber(maxMileage) : ''}
+              value={maxMileage !== '' ? maxMileage : ''}
               onChange={handleMileageToChange}
               pattern="[0-9]*"
               maxLength="4"

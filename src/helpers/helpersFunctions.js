@@ -6,14 +6,6 @@ export const formattedOptions = (options) => {
   return [...options.map((option) => ({ value: option, label: option }))];
 };
 
-// export const formatNumber = (value) => {
-//   return Number(value).toLocaleString('en-US');
-// };
-
-export const formatNumber = (value) => {
-  return parseFloat(value);
-};
-
 const generatePriceArr = () => {
   const options = [];
   for (let i = 10; i <= 990; i += 10) {
