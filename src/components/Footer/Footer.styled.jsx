@@ -8,6 +8,7 @@ export const FooterContainer = styled.footer`
   right: 0;
   left: 0;
   bottom: 0;
+  width: 100%;
   height: 150px;
   z-index: 200;
 `;
@@ -36,5 +37,4 @@ export const StyledLink = styled(NavLink)`
   &:hover {
     color: ${globalColor.colorAccent};
   }
-
 `;

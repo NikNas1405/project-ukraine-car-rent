@@ -13,6 +13,9 @@ export const fetchCars = createAsyncThunk(
     const { make, price, minMileage, maxMileage } = formData;
 
     try {
+      // const response = await axios.get(
+        // `${BASE_URL}/advert/?page=${page}&limit=12`
+      // );
       const response = await axios.get(`${BASE_URL}/advert`);
       let filteredCars = response.data;
 
@@ -47,6 +50,7 @@ export const fetchCars = createAsyncThunk(
       const paginatedCars = filteredCars.slice(startIndex, endIndex);
 
       return paginatedCars;
+      // return filteredCars;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue(error.message);
