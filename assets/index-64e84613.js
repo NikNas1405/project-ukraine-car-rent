@@ -165,7 +165,7 @@ Error generating stack: `+i.message+`
   right: 0;
   left: 0;
   bottom: 0;
-  width: 100%;
+  min-width: 1440px;
   height: 150px;
   z-index: 200;
 `,vk=xe.div`
@@ -420,4 +420,4 @@ button {
   margin: 0 auto;
   width: 1440px;
   min-height: 100vh;
-`,Ok=()=>L.jsxs(L.Fragment,{children:[L.jsx(yk,{}),L.jsx(P.Suspense,{fallback:L.jsx(zy,{}),children:L.jsx(Xg,{})}),L.jsx(ux,{}),L.jsx(Sk,{}),L.jsx(Rk,{})]}),Tk=P.lazy(()=>Oc(()=>import("./HomePage-c79e18e7.js"),[])),Nk=P.lazy(()=>Oc(()=>import("./CatalogPage-b3dcc812.js"),["assets/CatalogPage-b3dcc812.js","assets/FavoritesPage.styled-57a71c7e.js"])),Lk=P.lazy(()=>Oc(()=>import("./FavoritesPage-554ecb1e.js"),["assets/FavoritesPage-554ecb1e.js","assets/FavoritesPage.styled-57a71c7e.js"]));function Ik(){return L.jsx(L.Fragment,{children:L.jsx(Jg,{children:L.jsxs(Un,{path:"/",element:L.jsx(Ok,{}),children:[L.jsx(Un,{index:!0,element:L.jsx(Tk,{})}),L.jsx(Un,{path:"/catalog",element:L.jsx(Nk,{})}),L.jsx(Un,{path:"/favorites",element:L.jsx(Lk,{})}),L.jsx(Un,{path:"*",element:L.jsx(Yg,{to:"/"})})]})})})}Hs.createRoot(document.getElementById("root")).render(L.jsx(z.StrictMode,{children:L.jsx(j1,{store:ay,children:L.jsx(vm,{loading:L.jsx(zy,{}),persistor:YE,children:L.jsx(o0,{basename:"/project-ukraine-car-rent",children:L.jsx(Ik,{})})})})}));export{Y as B,Bk as C,zy as L,hp as N,Xg as O,Bs as R,f1 as a,zk as b,Dk as c,jk as d,Mk as e,Is as f,Z as g,Fk as h,$k as i,L as j,Uy as k,Uk as m,P as r,xe as s,Tx as u};
+`,Ok=()=>L.jsxs(L.Fragment,{children:[L.jsx(yk,{}),L.jsx(P.Suspense,{fallback:L.jsx(zy,{}),children:L.jsx(Xg,{})}),L.jsx(ux,{}),L.jsx(Sk,{}),L.jsx(Rk,{})]}),Tk=P.lazy(()=>Oc(()=>import("./HomePage-2b7b7fa7.js"),[])),Nk=P.lazy(()=>Oc(()=>import("./CatalogPage-63bb4ca0.js"),["assets/CatalogPage-63bb4ca0.js","assets/FavoritesPage.styled-0150fc5b.js"])),Lk=P.lazy(()=>Oc(()=>import("./FavoritesPage-4e7efe95.js"),["assets/FavoritesPage-4e7efe95.js","assets/FavoritesPage.styled-0150fc5b.js"]));function Ik(){return L.jsx(L.Fragment,{children:L.jsx(Jg,{children:L.jsxs(Un,{path:"/",element:L.jsx(Ok,{}),children:[L.jsx(Un,{index:!0,element:L.jsx(Tk,{})}),L.jsx(Un,{path:"/catalog",element:L.jsx(Nk,{})}),L.jsx(Un,{path:"/favorites",element:L.jsx(Lk,{})}),L.jsx(Un,{path:"*",element:L.jsx(Yg,{to:"/"})})]})})})}Hs.createRoot(document.getElementById("root")).render(L.jsx(z.StrictMode,{children:L.jsx(j1,{store:ay,children:L.jsx(vm,{loading:L.jsx(zy,{}),persistor:YE,children:L.jsx(o0,{basename:"/project-ukraine-car-rent",children:L.jsx(Ik,{})})})})}));export{Y as B,Bk as C,zy as L,hp as N,Xg as O,Bs as R,f1 as a,zk as b,Dk as c,jk as d,Mk as e,Is as f,Z as g,Fk as h,$k as i,L as j,Uy as k,Uk as m,P as r,xe as s,Tx as u};

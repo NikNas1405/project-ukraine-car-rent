@@ -1,5 +1,5 @@
-import{s as o,g as r,N as n,j as e,C as t}from"./index-9f8b5f37.js";const i="/project-ukraine-car-rent/assets/hero-ec1100c2.jpg",a=o.section`
-  width: 100%;
+import{s as o,g as r,N as n,j as e,C as t}from"./index-64e84613.js";const i="/project-ukraine-car-rent/assets/hero-ec1100c2.jpg",a=o.section`
+  min-width: 1440px;
   margin: 0 auto;
   padding: 300px 0;
   background-color: ${r.colorInput};
