@@ -6,7 +6,7 @@ import hero from '../../assets/hero.jpg';
 import { globalColor } from '../../styles/root';
 
 export const Hero = styled.section`
-  width: 100%;
+  min-width: 1440px;
   margin: 0 auto;
   padding: 300px 0;
   background-color: ${globalColor.colorInput};

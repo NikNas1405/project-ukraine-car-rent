@@ -8,7 +8,7 @@ export const FooterContainer = styled.footer`
   right: 0;
   left: 0;
   bottom: 0;
-  width: 100%;
+  min-width: 1440px;
   height: 150px;
   z-index: 200;
 `;
